@@ -2,17 +2,62 @@
 import { Graph } from '@antv/g6';
 import { onMounted } from 'vue';
 let graph: Graph;
-const onClick = () => {
+const onClick12 = () => {
   const edge = graph.getEdgeData('0-1');
   graph?.updateEdgeData([
     {
       id: edge.id,
-      source: edge.target,
+      source: '1',
       target: '2',
     },
   ]);
   graph.render()
 }
+const onClick02 = () => {
+  const edge = graph.getEdgeData('0-1');
+  graph?.updateEdgeData([
+    {
+      id: edge.id,
+      source: '0',
+      target: '2',
+    },
+  ]);
+  graph.render()
+}
+const onClick10 = () => {
+  const edge = graph.getEdgeData('0-1');
+  graph?.updateEdgeData([
+    {
+      id: edge.id,
+      source: '1',
+      target: '0',
+    },
+  ]);
+  graph.render()
+}
+const onClick20 = () => {
+  const edge = graph.getEdgeData('0-1');
+  graph?.updateEdgeData([
+    {
+      id: edge.id,
+      source: '2',
+      target: '0',
+    },
+  ]);
+  graph.render()
+}
+const onClick21 = () => {
+  const edge = graph.getEdgeData('0-1');
+  graph?.updateEdgeData([
+    {
+      id: edge.id,
+      source: '2',
+      target: '1',
+    },
+  ]);
+  graph.render()
+}
+
 onMounted(() => {
   graph = new Graph({
     container: 'graph',
@@ -72,8 +117,20 @@ onMounted(() => {
 <template>
   <div class="main">
     <div id="graph"></div>
-    <button @click="onClick">
-      更新边
+    <button @click="onClick12">
+      更新边12
+    </button>
+    <button @click="onClick02">
+      更新边02
+    </button>
+    <button @click="onClick10">
+      更新边10
+    </button>
+    <button @click="onClick20">
+      更新边20
+    </button>
+    <button @click="onClick21">
+      更新边21
     </button>
   </div>
 </template>
